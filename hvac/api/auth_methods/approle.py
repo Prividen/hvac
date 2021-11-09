@@ -271,7 +271,9 @@ class AppRole(VaultApiBase):
                 )
             )
 
-        params = {"metadata": json.dumps(metadata) if metadata else metadata}
+        params = {}
+        if metadata:
+            params = {"metadata": json.dumps(metadata)}
 
         list_of_strings_params = {
             "cidr_list": cidr_list,
